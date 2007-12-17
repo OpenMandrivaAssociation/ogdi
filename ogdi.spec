@@ -19,7 +19,6 @@ BuildRequires:	proj-devel
 BuildRequires:	tcl tcl-devel
 BuildRequires:	unixODBC-devel
 BuildRequires:	zlib-devel
-BuildRoot:	%{_tmppath}/%{name}-%{version}-root
 
 %description
 OGDI is the Open Geographic Datastore Interface. OGDI is an
