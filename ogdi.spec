@@ -7,7 +7,7 @@
 Summary:	Open Geographic Datastore Interface
 Name:		%{name}
 Version:	3.1.5
-Release:	%mkrel 2
+Release:	%mkrel 4
 License:	BSD style
 Group:		Sciences/Geosciences
 URL:		http://ogdi.sourceforge.net/
