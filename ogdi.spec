@@ -11,7 +11,7 @@ Release:	%mkrel 4
 License:	BSD style
 Group:		Sciences/Geosciences
 URL:		http://ogdi.sourceforge.net/
-Source0:	http://prdownloads.sourceforge.net/%{name}/%{name}-%{version}.tar.bz2
+Source0:	http://prdownloads.sourceforge.net/%{name}/%{name}-%{version}.tar.gz
 Source1:	http://ogdi.sourceforge.net/ogdi.pdf
 Patch0:		%{name}-driversdir.patch
 BuildRequires:	expat-devel
