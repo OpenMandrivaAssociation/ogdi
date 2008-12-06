@@ -7,16 +7,16 @@
 Summary:	Open Geographic Datastore Interface
 Name:		%{name}
 Version:	3.1.5
-Release:	%mkrel 4
-License:	BSD style
+Release:	%mkrel 5
+License:	BSD
 Group:		Sciences/Geosciences
 URL:		http://ogdi.sourceforge.net/
-Source0:	http://prdownloads.sourceforge.net/%{name}/%{name}-%{version}.tar.gz
+Source0:	http://prdownloads.sourceforge.net/%{name}/%{name}-%{version}.tar.bz2
 Source1:	http://ogdi.sourceforge.net/ogdi.pdf
 Patch0:		%{name}-driversdir.patch
 BuildRequires:	expat-devel
 BuildRequires:	proj-devel
-BuildRequires:	tcl tcl-devel
+BuildRequires:	tcl-devel
 BuildRequires:	unixODBC-devel
 BuildRequires:	zlib-devel
 BuildRoot:	%{_tmppath}/%{name}-%{version}-root
