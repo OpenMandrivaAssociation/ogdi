@@ -16,7 +16,7 @@ Group:		Sciences/Geosciences
 URL:		http://ogdi.sourceforge.net/
 Source0:	http://prdownloads.sourceforge.net/%{name}/%{name}-%{version}.%{beta}.tar.gz
 Source1:	http://ogdi.sourceforge.net/ogdi.pdf
-#Patch0:		%{name}-driversdir.patch
+Patch0:		patch_for_proj48_redhat.patch
 Patch1:		ogdi-3.2.0.beta2-fix-str-fmt.patch
 BuildRequires:	expat-devel
 BuildRequires:	proj-devel
@@ -87,7 +87,7 @@ TCL wrapper for OGDI.
 %prep
 
 %setup -q -n %{name}-%{version}.%{beta}
-#%patch0 -p1
+%patch0 -p1
 %patch1 -p0
 
 cp -f %{SOURCE1} .
