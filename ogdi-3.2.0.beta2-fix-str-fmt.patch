@@ -1,0 +1,11 @@
+--- contrib/gdal/gdalbridge.c.orig	2001-05-04 05:13:35.000000000 +0200
++++ contrib/gdal/gdalbridge.c	2010-02-17 12:43:45.000000000 +0100
+@@ -124,7 +124,7 @@
+ 
+         if( pfnTest == NULL )
+         {
+-            sprintf( szPath, papszSOFilenames[iSOFile] );
++            sprintf( szPath, "%s", papszSOFilenames[iSOFile] );
+             pfnTest = GBGetSymbol( szPath, "GDALOpen" );
+         }
+     }
