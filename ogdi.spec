@@ -19,11 +19,10 @@ Source1:	http://ogdi.sourceforge.net/ogdi.pdf
 Patch0:		patch_for_proj48_redhat.patch
 Patch1:		ogdi-3.2.0.beta2-fix-str-fmt.patch
 BuildRequires:	expat-devel
-BuildRequires:	proj-devel
+BuildRequires:	pkgconfig(proj)
 BuildRequires:	tcl-devel
 BuildRequires:	unixODBC-devel
 BuildRequires:	zlib-devel
-BuildRoot:	%{_tmppath}/%{name}-%{version}-root
 
 %description
 OGDI is the Open Geographic Datastore Interface. OGDI is an
@@ -93,6 +92,7 @@ TCL wrapper for OGDI.
 cp -f %{SOURCE1} .
 
 %build
+autoreconf -fi
 
 TOPDIR=`pwd`; TARGET=Linux; export TOPDIR TARGET
 INST_LIB=%{_libdir}/;export INST_LIB
