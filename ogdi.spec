@@ -58,10 +58,6 @@ Group:		Sciences/Geosciences
 Requires:	%{libname} = %{version}-%{release}
 Provides:	%{name}-devel = %{version}-%{release}
 Provides:	lib%{name}-devel = %{version}-%{release}
-#Manually provide these until library issues are resolved:
-Provides:	devel(libexpat_ogdi%{libminor}) 
-Provides:	devel(libogdi%{libminor})
-Provides:	devel(libzlib_ogdi%{libminor})
 
 %description -n %{develname}
 OGDI header files and developer's documentation.
@@ -113,7 +109,7 @@ cp -af config/linux.mak{,.old}
 cp -af config/{L,l}inux.mak
 
 # make doesn't survive a parallell build, so stop that...
-make
+make RPC_LINKLIB="-ltirpc"
 
 make -C ogdi/tcl_interface \
 	TCL_LINKLIB="-ltcl"
