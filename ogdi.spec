@@ -10,7 +10,7 @@
 Summary:	Open Geographic Datastore Interface
 Name:		%{name}
 Version:	3.2.0
-Release:	%mkrel 0.%{beta}.2
+Release:	0.%{beta}.3
 License:	BSD
 Group:		Sciences/Geosciences
 URL:		http://ogdi.sourceforge.net/
@@ -23,6 +23,7 @@ BuildRequires:	pkgconfig(proj)
 BuildRequires:	tcl-devel
 BuildRequires:	unixODBC-devel
 BuildRequires:	zlib-devel
+BuildRequires:	pkgconfig(libtirpc)
 
 %description
 OGDI is the Open Geographic Datastore Interface. OGDI is an
