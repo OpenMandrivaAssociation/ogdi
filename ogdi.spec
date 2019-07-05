@@ -10,7 +10,7 @@
 Summary:	Open Geographic Datastore Interface
 Name:		%{name}
 Version:	3.2.0
-Release:	0.%{beta}.3
+Release:	0.%{beta}.4
 License:	BSD
 Group:		Sciences/Geosciences
 URL:		http://ogdi.sourceforge.net/
@@ -99,7 +99,7 @@ export CFG=debug # for -g
 OPT_FLAGS=`echo $RPM_OPT_FLAGS|sed -e 's/-Wp,-D_FORTIFY_SOURCE=2//g'`
 export CFLAGS="$OPT_FLAGS -fPIC -DPIC -DDONT_TD_VOID -DUSE_TERMIO" 
 
-%configure2_5x \
+%configure \
 	--with-binconfigs \
 	--with-expat \
 	--with-proj \
