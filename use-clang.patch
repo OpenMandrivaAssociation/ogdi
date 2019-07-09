@@ -1,0 +1,17 @@
+diff --git a/config/unix.mak b/config/unix.mak
+index 25db9a1..be24b55 100644
+--- a/config/unix.mak
++++ b/config/unix.mak
+@@ -22,9 +22,9 @@ UNIX_DEFINE	= -Dunix
+ #
+ # Standard tools
+ #
+-CC		= gcc
+-LD		= gcc
+-SHLIB_LD	= gcc
++CC		= clang
++LD		= clang
++SHLIB_LD	= clang
+ AR		= ar cr
+ RM		= rm
+ RMALL		= rm -rf
