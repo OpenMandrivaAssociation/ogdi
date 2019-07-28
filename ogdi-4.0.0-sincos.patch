@@ -1,0 +1,10 @@
+--- ogdi-4.0.0/ogdi/driver/adrg/makefile.orig	2019-03-07 16:14:37.864950557 +0100
++++ ogdi-4.0.0/ogdi/driver/adrg/makefile	2019-03-07 16:14:47.782633300 +0100
+@@ -20,7 +20,7 @@
+ 
+ CFLAGS 	= $(INCLUDES) $(COMMON_CFLAGS)
+ 
+-LINK_LIBS= $(OGDI_LINKLIB) $(GLUTIL_STATICLIB) 
++LINK_LIBS= $(OGDI_LINKLIB) $(GLUTIL_STATICLIB) -lm
+ 
+ include $(TOPDIR)/config/common.mak

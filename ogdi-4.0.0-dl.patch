@@ -1,0 +1,10 @@
+--- ogdi-4.0.0/contrib/gdal/makefile.orig	2019-03-07 16:18:54.204750494 +0100
++++ ogdi-4.0.0/contrib/gdal/makefile	2019-03-07 16:19:01.317522964 +0100
+@@ -12,7 +12,7 @@
+ INCLUDES = $(CURRENT_INCLUDE) $(GENERAL_INCLUDE) $(OGDI_INCLUDE)
+ CFLAGS 	= $(INCLUDES) $(COMMON_CFLAGS)
+ 
+-LINK_LIBS= $(OGDI_LINKLIB) $(GUTIL_LINKLIB)
++LINK_LIBS= $(OGDI_LINKLIB) $(GUTIL_LINKLIB) -ldl -lm
+ 
+ include $(TOPDIR)/config/common.mak

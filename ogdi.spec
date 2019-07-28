@@ -1,7 +1,7 @@
 # TODO: separate gltpd to -server package, add init script (requires portmap)
 
 %define name	ogdi
-%define major	3
+%define major	4
 %define libname %mklibname %{name} %{major}
 %define develname %mklibname -d %{name}
 
@@ -9,16 +9,15 @@
 
 Summary:	Open Geographic Datastore Interface
 Name:		%{name}
-Version:	3.2.0
-Release:	0.%{beta}.4
+Version:	4.1.0
+Release:	1
 License:	BSD
 Group:		Sciences/Geosciences
 URL:		http://ogdi.sourceforge.net/
-Source0:	http://prdownloads.sourceforge.net/%{name}/%{name}-%{version}.%{beta}.tar.gz
-Source1:	http://ogdi.sourceforge.net/ogdi.pdf
-Patch0:		patch_for_proj48_redhat.patch
+Source0:	https://datapacket.dl.sourceforge.net/project/ogdi/ogdi/%{version}/%{name}-%{version}.tar.gz
+Patch0:		ogdi-4.0.0-dl.patch
 Patch1:		ogdi-3.2.0.beta2-fix-str-fmt.patch
-Patch2:		use-clang.patch
+Patch2:		ogdi-4.0.0-sincos.patch
 BuildRequires:	expat-devel
 BuildRequires:	pkgconfig(proj)
 BuildRequires:	tcl-devel
@@ -83,12 +82,10 @@ TCL wrapper for OGDI.
 
 %prep
 
-%setup -q -n %{name}-%{version}.%{beta}
+%setup -q
 %patch0 -p1
 %patch1 -p0
 %patch2 -p1
-
-cp -f %{SOURCE1} .
 
 %build
 autoreconf -fi
@@ -112,7 +109,7 @@ cp -af config/linux.mak{,.old}
 cp -af config/{L,l}inux.mak
 
 # make doesn't survive a parallell build, so stop that...
-make RPC_LINKLIB="-ltirpc"
+make RPC_LINKLIB="-ltirpc -ldl"
 
 make -C ogdi/tcl_interface \
 	TCL_LINKLIB="-ltcl"
@@ -123,8 +120,6 @@ make -C ogdi/attr_driver/odbc \
 	ODBC_LINKLIB="-lodbc"
 
 %install
-rm -rf %{buildroot}
-
 # export env 
 TOPDIR=`pwd`; TARGET=Linux; export TOPDIR TARGET
 
@@ -178,19 +173,7 @@ EOF
 chmod 755 %{buildroot}%{_bindir}/%{name}-config
 touch -r ogdi-config.in %{buildroot}%{_bindir}/%{name}-config 
 
-%clean
-rm -rf %{buildroot}
-
-%if %mdkversion < 200900
-%post	-p /sbin/ldconfig -n %{libname}
-%endif
-
-%if %mdkversion < 200900
-%postun	-p /sbin/ldconfig -n %{libname}
-%endif
-
 %files
-%defattr(-,root,root,-)
 %doc LICENSE NEWS ChangeLog README
 %{_bindir}/gltpd
 %{_bindir}/ogdi_*
@@ -200,12 +183,9 @@ rm -rf %{buildroot}
 %{_libdir}/%{name}/lib*.so 
 
 %files -n %{libname}
-%defattr(-,root,root)
 %{_libdir}/libogdi.so.%{major}*
 
 %files -n %{develname}
-%defattr(-,root,root,-)
-%doc ogdi.pdf
 %doc ogdi/examples/example1/example1.c
 %doc ogdi/examples/example2/example2.c
 %{_bindir}/%{name}-config
@@ -222,4 +202,3 @@ rm -rf %{buildroot}
 %files -n tcl-ogdi
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_libdir}/ogdi/libecs_tcl.so
-
