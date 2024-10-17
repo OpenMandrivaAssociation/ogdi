@@ -13,7 +13,7 @@ Version:	4.1.0
 Release:	2
 License:	BSD
 Group:		Sciences/Geosciences
-URL:		http://ogdi.sourceforge.net/
+URL:		https://ogdi.sourceforge.net/
 Source0:	https://datapacket.dl.sourceforge.net/project/ogdi/ogdi/%{version}/%{name}-%{version}.tar.gz
 Patch0:		ogdi-4.0.0-dl.patch
 Patch1:		ogdi-3.2.0.beta2-fix-str-fmt.patch
