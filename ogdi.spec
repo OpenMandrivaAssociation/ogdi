@@ -10,7 +10,7 @@
 Summary:	Open Geographic Datastore Interface
 Name:		%{name}
 Version:	4.1.0
-Release:	2
+Release:	3
 License:	BSD
 Group:		Sciences/Geosciences
 URL:		https://ogdi.sourceforge.net/
