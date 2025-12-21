@@ -18,6 +18,11 @@ Source0:	https://datapacket.dl.sourceforge.net/project/ogdi/ogdi/%{version}/%{na
 Patch0:		ogdi-4.0.0-dl.patch
 Patch1:		ogdi-3.2.0.beta2-fix-str-fmt.patch
 Patch2:		ogdi-4.0.0-sincos.patch
+BuildRequires:	autoconf
+BuildRequires:	automake
+BuildRequires:	libtool-base
+BuildRequires:	slibtool
+BuildRequires:	make
 BuildRequires:	expat-devel
 BuildRequires:	pkgconfig(proj)
 BuildRequires:	tcl-devel
